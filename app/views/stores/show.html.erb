@@ -1,0 +1,11 @@
+<!-- show store page -->
+
+<table>
+    <tr>
+        <td>Store name: <%= @store.name %></td>
+    </tr>
+    <tr>
+        <td><%= link_to "Edit store name", edit_path %></td>
+        <td><%= link_to "Delete store", destroy_store_path, method: "delete"  %></td>
+    </tr>
+</table>

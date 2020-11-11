@@ -1,4 +1,7 @@
 <h1>create a store</h1>
 
-<%= form_with Store.new do %>
+<%= form_with model: @store, local: true do |form| %>
+    <%= form.label (:name) %>
+    <%= form.text_field(:name) %>
+    <%= form.submit("Create") %>
 <% end %>
