@@ -1,5 +1,6 @@
 class StoresController < ApplicationController
     skip_before_action :verify_authenticity_token
+    before_action :authenticate_user!, except: [:index]
     
     def index
         @stores = Store.all
@@ -22,6 +23,13 @@ class StoresController < ApplicationController
      
     def edit
         @store = Store.find(params[:id])
+    end
+
+    def update
+        store = Store.find(params[:id])
+        store.update(name: params[:store][:name])
+        store.save
+        redirect_to store_path(store.id)
     end
 
     def destroy

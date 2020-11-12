@@ -1,5 +1,7 @@
 <h1>All stores</h1>
 
+<p><%= link_to "Create a new store", stores_new_path %></p>
+
 <% @stores.each do |store| %>
     <p><%= link_to store.name, store_path(store.id)%></p>
 <% end %>

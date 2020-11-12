@@ -4,8 +4,14 @@
     <tr>
         <td>Store name: <%= @store.name %></td>
     </tr>
+    <% if current_user.id == @store.user_id %>
+        <tr>
+            <td><%= link_to "Edit store name", edit_path %></td>
+            <td><%= link_to "Delete store", destroy_store_path, method: "delete"  %></td>
+            <td><%= link_to "Create a listing" %></td>
+        </tr>
+    <% end %>
     <tr>
-        <td><%= link_to "Edit store name", edit_path %></td>
-        <td><%= link_to "Delete store", destroy_store_path, method: "delete"  %></td>
+        <td>(add store listings)</td>
     </tr>
 </table>

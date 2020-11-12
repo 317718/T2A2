@@ -1,0 +1,17 @@
+<h1>Categories</h1>
+
+<table>
+    <% @categories.each do |cat| %>
+        <tr>
+            <td>
+                <p><%= cat.name %></p>
+            </td>
+            <td>
+                <p><%= link_to "Edit", categories_edit_path(cat.id) %> </p>
+            </td>
+            <td>
+                <p><%= link_to "Delete", destroy_categories_path(cat.id), method: "delete" %> </p>
+            </td>
+        </tr>
+    <% end %>
+</table>
