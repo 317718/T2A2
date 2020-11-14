@@ -1,3 +1,40 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+nav {
+    border-bottom: black solid 1px;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+  }
+
+.item {
+    // border: red solid 2px;
+    flex-grow: 1;
+}
+
+#img {
+    
+    flex-grow: 0;
+}
+
+#buy {
+    flex-grow: 3;
+    padding: 10px;
+    margin: 20px;
+}
+
+#seller {
+    border-left: black solid 1px;
+    padding: 20px;
+    margin: 20px;
+}
+
+#desc {
+    padding: 10px;
+    margin: 20px;
+}

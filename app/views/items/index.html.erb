@@ -1,1 +1,22 @@
-items index
+<!-- items index -->
+<p>
+    <%= link_to "Create a new listing", items_new_path %>
+</p>
+
+<!-- show all listings from all stores -->
+<div class="container">
+    <% @items.each do |item| %>
+        <div class="item">
+            <div>image</div>
+            <div class="container">
+                <div class="item">
+                    <h5><%= link_to item.title, item_path(item.id) %></h5>
+                </div>
+                <div class="item">
+                    <h3>$<%= "%.2f" % item.price %></h3>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
+

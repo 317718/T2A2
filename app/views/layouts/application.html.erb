@@ -12,17 +12,26 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
     <nav>
-      
-      <% if !user_signed_in? %>
-        <%= link_to "Sign up", new_user_registration_path %>
-        <%= link_to "Sign in", new_user_session_path %>
-      <% end %>
-      <% if user_signed_in? %>
-         <p>Welcome, <%= current_user.email %>!
-         <%= link_to "Sign out", destroy_user_session_path, method: "delete" %></p>
-      <% end %>
+      <div class="container">
+        <div class="item">
+          <span><%= link_to "Categories", categories_path %> | 
+            <%= link_to "Stores", stores_path %></span>
+        </div>
+        <div class="container">
+          <% if !user_signed_in? %>
+            <%= link_to "Sign up", new_user_registration_path %>
+            <%= link_to "Sign in", new_user_session_path %>
+          <% end %>
+          <% if user_signed_in? %>
+            <span>Welcome, <%= current_user.email %>!
+            <%= link_to "Sign out", destroy_user_session_path, method: "delete" %></span>
+          <% end %>
+        </div>
+      </div>
     </nav>
+
     <%= yield %>
   </body>
 </html>

@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   get "items/new", to: "items#new"
   post "items", to: "items#create"
   get "items", to: "items#index"
+  get "items/:id", to: "items#show", as: "item"
+
+  post "items/:id/buy", to: "items#buy", as: "buy"
+  get "items/:id/success", to: "items#success", as: "success"
+  get "items/:id/cancel", to: "items#cancel", as: "cancel"
 
 
   root to: "pages#index"

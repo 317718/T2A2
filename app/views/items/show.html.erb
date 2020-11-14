@@ -1,0 +1,46 @@
+<!-- item show page -->
+<div class="container">
+    <div class="item" id="img">
+        <%= image_tag @item.image, width: 700 %>
+    </div>
+    <div class="item">
+        <div class="container">
+            <div class="item" id="buy">
+                <div>
+                    <h1><%= @item.title %></h1>
+                </div>
+                <div class="container">
+                    <div class="item">
+                        <h3>$<%= "%.2f" % @item.price %></h3>
+                    </div>
+                    <aside class="item">
+                        <button id="buynow-button">Buy now</button>
+                        <script src="https://js.stripe.com/v3/"></script>
+                        <script>
+                            const stripe = Stripe('<%= ENV["STRIPE_PUBLISHABLE_KEY"] %>')
+                            const buyButton = document.getElementById('buynow-button')
+                            buyButton.addEventListener('click', function() {
+                                fetch('<%= buy_path(@item.id) %>', {
+                                    method: 'POST'
+                                })
+                                .then(function(response) {
+                                    return response.json()
+                                })
+                                .then(function(session) {
+                                    return stripe.redirectToCheckout({ sessionId: session.id })
+                                })
+                                })
+                        </script>
+                    </aside>
+                </div>
+            </div>
+            <aside class="item" id="seller">
+                <p>Sold by:</p>
+                <h3>(user - link to profile)</h3>
+            </aside>
+        </div>
+        <div id="desc">
+            <%= @item.description %>
+        </div>
+    </div>
+</div>
