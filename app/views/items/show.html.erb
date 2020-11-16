@@ -1,11 +1,19 @@
 <!-- item show page -->
 <div class="container">
-    <div class="item" id="img">
-        <%= image_tag @item.image, width: 700 %>
-    </div>
+    <% if @item.image.attached? %>
+        <div class="item" id="img">
+            <%= image_tag @item.image, width: 700 %>
+        </div>
+    <% end %>
     <div class="item">
         <div class="container">
             <div class="item" id="buy">
+                <div>
+                    <% if current_user.id == @item.store.user_id %>
+                        <%= link_to "Edit item", edit_item_path %> | 
+                        <%= link_to "Delete item", destroy_item_path, method: :delete %>
+                    <% end %>
+                </div>
                 <div>
                     <h1><%= @item.title %></h1>
                 </div>

@@ -1,0 +1,12 @@
+<h1>Edit category</h1>
+
+<%= form_with model: @categories, local: true do |form| %>
+    <div>
+        <%= form.label (:name) %>
+        <%= form.text_field(:name) %>
+    </div>
+    <div>
+        <%= form.submit("Update") %>
+    </div>
+<% end %>
+<p><%= link_to "Cancel", categories_path %> </p>

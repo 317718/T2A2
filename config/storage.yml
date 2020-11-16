@@ -37,4 +37,4 @@ cloudinary:
   service: Cloudinary
   cloud_name: <%= ENV['CLOUDINARY_CLOUDNAME'] %>
   api_key: <%= ENV['CLOUDINARY_APIKEY'] %>
-  api_secret: <%= ENV['CLOUDINARY_SECRET']
+  api_secret: <%= ENV['CLOUDINARY_SECRET'] %>

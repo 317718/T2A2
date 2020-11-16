@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 skip_before_action :verify_authenticity_token, only: [:buy]
-before_action :set_item, only: [:buy]
+before_action :set_item, only: [:buy, :edit]
 
     def index
         @items = Item.all
@@ -12,12 +12,28 @@ before_action :set_item, only: [:buy]
     def create
         item = Item.new(item_params)
         item.store_id = current_user.store.id
-        item.save
+        # item.image.attach(params[:image])
+        item.save!
         redirect_to items_path
     end
 
     def show
         @item = Item.find(params[:id])
+    end
+
+    def edit
+        
+    end
+
+    def update
+        item = Item.find(params[:id])
+        item.update(item_params)
+        redirect_to item_path(item.id)
+    end
+
+    def destroy
+        Item.destroy(params[:id])
+        redirect_to items_path
     end
 
     def buy
