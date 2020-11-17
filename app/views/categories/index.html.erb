@@ -1,17 +1,23 @@
 <h1>Categories</h1>
+
+<% if user_signed_in? && current_user.has_role?(:admin) %>
 <p><%= link_to "Create a new category", categories_new_path %></p>
+<% end %>
+
 <table>
     <% @categories.each do |cat| %>
         <tr>
             <td>
-                <p><%= cat.name %></p>
+                <p><%= link_to cat.name, category_path(cat.id) %></p>
             </td>
-            <td>
-                <p><%= link_to "Edit", categories_edit_path(cat.id) %> </p>
-            </td>
-            <td>
-                <p><%= link_to "Delete", destroy_categories_path(cat.id), method: "delete" %> </p>
-            </td>
+            <% if user_signed_in? && current_user.has_role?(:admin) %>
+                <td>
+                    <p><%= link_to "Edit", categories_edit_path(cat.id) %> </p>
+                </td>
+                <td>
+                    <p><%= link_to "Delete", destroy_categories_path(cat.id), method: "delete" %> </p>
+                </td>
+            <% end %>
         </tr>
     <% end %>
 </table>

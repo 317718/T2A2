@@ -59,7 +59,7 @@ before_action :set_item, only: [:buy, :edit]
     end
 
     def success
-        render plain: "Success!"
+        # render plain: "Success!"
     end
 
     def cancel

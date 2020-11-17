@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "categories/new", to: "categories#new"
   post "categories/new", to: "categories#create"
   get "categories", to: "categories#index"
+  get "categories/:id", to: "categories#show", as: "category"
   get "categories/:id/edit", to: "categories#edit", as: "categories_edit"
   post "categories/:id/edit", to: "categories#update"
   delete "categories/:id", to: "categories#destroy", as: "destroy_categories"
