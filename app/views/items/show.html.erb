@@ -1,12 +1,10 @@
 <!-- item show page -->
 <div class="container">
-    <div class="item" id="img">   
     <% if @item.image.attached? %>
         <div class="item" id="img">
             <%= image_tag @item.image, width: 700 %>
         </div>
     <% end %>
-    </div>
     <div class="item">
         <div class="container">
             <div class="item" id="buy">
@@ -55,8 +53,9 @@
                 <p>Sold by:</p>
                 <h3><%= @item.store.user.email %></h3>
             </aside>
+            
         </div>
-        <div id="desc">
+        <div class="item" id="desc">
             <%= @item.description %>
         </div>
     </div>

@@ -4,7 +4,6 @@ before_action :set_item, only: [:buy, :edit]
 before_action :authenticate_user!, only: [:new]
 
     def index
-        @items = Item.all
         @items = Item.paginate(:page => params[:page])
     end
     
