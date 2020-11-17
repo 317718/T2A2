@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 skip_before_action :verify_authenticity_token, only: [:buy]
 before_action :set_item, only: [:buy, :edit]
+before_action :authenticate_user!, only: [:new]
 
     def index
         @items = Item.all
