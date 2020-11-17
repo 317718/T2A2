@@ -13,8 +13,9 @@
                 <div>
                     <% if current_user.id == @item.store.user_id %>
                         <%= link_to "Edit item", edit_item_path %> | 
-                        <%= link_to "Delete item", destroy_item_path, method: :delete %>
+                        <%= link_to "Delete item", destroy_item_path, method: :delete %> | 
                     <% end %>
+                    <%= link_to "Back to results", items_path %>
                 </div>
                 <div>
                     <h1><%= @item.title %></h1>

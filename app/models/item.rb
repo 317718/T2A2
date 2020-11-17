@@ -6,4 +6,6 @@ class Item < ApplicationRecord
   belongs_to :category
 
   has_one_attached :image
+
+  self.per_page = 10
 end

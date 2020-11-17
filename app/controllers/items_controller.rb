@@ -4,7 +4,9 @@ before_action :set_item, only: [:buy, :edit]
 
     def index
         @items = Item.all
+        @items = Item.paginate(:page => params[:page])
     end
+    
     def new
         @item = Item.new
     end
@@ -65,6 +67,7 @@ before_action :set_item, only: [:buy, :edit]
     def cancel
         render plain: "The transaction was cancelled."
     end
+
 
     private
 

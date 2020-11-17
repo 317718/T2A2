@@ -63,3 +63,5 @@ gem "activestorage-cloudinary-service", "~> 0.2.3"
 gem "stripe", "~> 5.28"
 
 gem "rolify", "~> 5.3"
+
+gem 'will_paginate', '~> 3.3.0'
