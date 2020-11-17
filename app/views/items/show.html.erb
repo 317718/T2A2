@@ -11,7 +11,7 @@
         <div class="container">
             <div class="item" id="buy">
                 <div>
-                    <% if current_user.id == @item.store.user_id %>
+                    <% if user_signed_in? && current_user.id == @item.store.user_id %>
                         <%= link_to "Edit item", edit_item_path %> | 
                         <%= link_to "Delete item", destroy_item_path, method: :delete %> | 
                     <% end %>
@@ -24,6 +24,7 @@
                     <div class="item">
                         <h3>$<%= "%.2f" % @item.price %></h3>
                     </div>
+                    <% if user_signed_in? %>
                     <aside class="item">
                         <button id="buynow-button">Buy now</button>
                         <script src="https://js.stripe.com/v3/"></script>
@@ -43,11 +44,16 @@
                                 })
                         </script>
                     </aside>
+                    <% elsif %>
+                        <aside>
+                            <p>You must be logged in to make a purchase.</p>
+                        </aside>
+                    <% end %>
                 </div>
             </div>
             <aside class="item" id="seller">
                 <p>Sold by:</p>
-                <h3>(user - link to profile)</h3>
+                <h3><%= @item.store.user.email %></h3>
             </aside>
         </div>
         <div id="desc">

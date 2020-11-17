@@ -20,6 +20,7 @@ class StoresController < ApplicationController
     def show
         @store = Store.find(params[:id])
         @items = @store.items
+        @items = Item.paginate(:page => params[:page])
     end
      
     def edit

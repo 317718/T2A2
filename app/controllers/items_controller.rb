@@ -65,7 +65,7 @@ before_action :set_item, only: [:buy, :edit]
     end
 
     def cancel
-        render plain: "The transaction was cancelled."
+        # render plain: "The transaction was cancelled."
     end
 
 

@@ -7,5 +7,5 @@ class Item < ApplicationRecord
 
   has_one_attached :image
 
-  self.per_page = 10
+  self.per_page = 8
 end
